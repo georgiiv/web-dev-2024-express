@@ -28,10 +28,10 @@ db.models.University.hasMany(db.models.User, {
     as: 'users',
 });
 
-const User_Subjects = sequelize.define('User_Subjects', {});
+const UserSubjects = sequelize.define('UserSubjects', {});
 db.models.Subject.belongsToMany(db.models.User, {
-    through: User_Subjects
+    through: UserSubjects
 });
 db.models.User.belongsToMany(db.models.Subject, {
-    through: User_Subjects
+    through: UserSubjects
 });
