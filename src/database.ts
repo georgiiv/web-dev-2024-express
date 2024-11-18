@@ -28,7 +28,10 @@ db.models.University.hasMany(db.models.User, {
     as: 'users',
 });
 
-db.models.User.hasMany(db.models.Subject, {
-    foreignKey: 'subjectId',
-    as: 'subjects',
+const User_Subjects = sequelize.define('User_Subjects', {});
+db.models.Subject.belongsToMany(db.models.User, {
+    through: User_Subjects
+});
+db.models.User.belongsToMany(db.models.Subject, {
+    through: User_Subjects
 });

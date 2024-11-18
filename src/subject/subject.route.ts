@@ -18,12 +18,7 @@ router.post('/', async (req: Request, res: Response) => {
 
 router.get('/', async (_req: Request, res: Response) => {
     try {
-        const subjects = await db.models.Subject.findAll({
-            include: {
-                model: db.models.Subject,
-                as: 'subjects',
-            },
-        });
+        const subjects = await db.models.Subject.findAll();
         res.status(200).json(subjects);
     } catch (error: any) {
         res.status(500).json({ error: error.message });
