@@ -15,11 +15,11 @@ async function testPostUniversityRequest() {
 async function testPostSubjectsRequest() {
   try {
     response = await axios.post('http://localhost:3000/subject', {
-      subjectName: 'Math'
+      name: 'Math'
     });
     console.log('Response data:', response.data);
     response = await axios.post('http://localhost:3000/subject', {
-      subjectName: 'English'
+      name: 'English'
     });
     console.log('Response data:', response.data);
   } catch (error) {

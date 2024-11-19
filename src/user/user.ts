@@ -1,4 +1,4 @@
-import { DataTypes, Model, Sequelize, Optional, HasOneSetAssociationMixin, HasOneGetAssociationMixin, HasManyGetAssociationsMixin, BelongsToManyCreateAssociationMixin, BelongsToManyGetAssociationsMixin, HasManyAddAssociationMixin, BelongsToManySetAssociationsMixin } from 'sequelize';
+import { DataTypes, Model, Sequelize, Optional, HasOneSetAssociationMixin, HasOneGetAssociationMixin, HasManyGetAssociationsMixin, BelongsToManyCreateAssociationMixin, BelongsToManyGetAssociationsMixin, HasManyAddAssociationMixin, BelongsToManySetAssociationsMixin, BelongsToManyAddAssociationMixin } from 'sequelize';
 import { University } from '../university/university';
 import { Subject } from '../subject/subject';
 
@@ -16,8 +16,11 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   public name!: string;
   public universityId!: number;
   public email!: string;
+
   declare setSubjects: BelongsToManySetAssociationsMixin<Subject, number>;
+  declare addSubjects: BelongsToManyAddAssociationMixin<Subject, number>;
   declare getSubjects: BelongsToManyGetAssociationsMixin<Subject>;
+
   declare setUniversity: HasOneSetAssociationMixin<University, number>;
   declare getUniversity: HasOneGetAssociationMixin<University>;
 }
